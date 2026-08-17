@@ -1,13 +1,11 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv/config");
 const app = express();
-const router = require('./Routes')
+const router = require("./Routes");
 
- 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
@@ -31,15 +29,13 @@ const connect = async () => {
 connect();
 module.exports = { connect };
 
-
 //routes
 // app.use("/", routesHandler);
 // app.use("/", routesAuth);
 // app.use("/", routesGift);
 app.use("/api", router);
 
-
-const PORT = process.env.PORT || 5000; // backend routing port
+const PORT = process.env.PORT || 5002; // backend routing port
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
